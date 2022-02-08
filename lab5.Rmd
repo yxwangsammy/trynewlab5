@@ -1,0 +1,30 @@
+---
+title: "lab5555"
+author: "YUEXU"
+date: "2/8/2022"
+output: github_document
+---
+
+```{r }
+library(ggplot2)
+library(dplyr)
+library(moderndive)
+library(gapminder)
+library(skimr)
+```
+
+```{r}
+View(evals)
+```
+
+```{r}
+evals.scores <- evals %>%
+  select(score, bty_avg)
+evals.scores %>%
+  skim()
+evals.scores %>%
+  get_correlation(formula = score ~ bty_avg)
+ggplot(evals.scores, aes(x = bty_avg, y = score)) +
+  geom_point()
+```
+
